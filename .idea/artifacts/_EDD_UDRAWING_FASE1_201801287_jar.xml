@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="[EDD]UDRAWING_FASE1_201801287:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/_EDD_UDRAWING_FASE1_201801287_jar</output-path>
+    <root id="archive" name="[EDD]UDRAWING_FASE1_201801287.jar">
+      <element id="module-output" name="[EDD]UDRAWING_FASE1_201801287" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/PROYECTS/BORRAR/gson-2.2.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
