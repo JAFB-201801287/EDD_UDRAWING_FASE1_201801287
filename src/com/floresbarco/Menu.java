@@ -265,6 +265,7 @@ public class Menu {
             client.setColorImage(Integer.parseInt((String) info.get("img_color")));
             client.setColorlessImage(Integer.parseInt((String) info.get("img_bw")));
             ClientController.getInstance().addReceptionQueue(client);
+            ClientController.getInstance().add(client);
             if (idClient < Integer.parseInt((String) info.get("id_cliente"))) {
                 idClient = Integer.parseInt((String) info.get("id_cliente")) + 1;
             }
@@ -442,16 +443,6 @@ public class Menu {
                 }
             }
         }
-        /*if (current != null) {
-            System.out.println(" +-+ ESPERA " + current.getElement().getName() + " " + current.getElement().getImages().getCount() + " : " + (current.getElement().getColorImage() + current.getElement().getColorlessImage()));
-            if (current.getElement().getImages().getCount() == (current.getElement().getColorImage() + current.getElement().getColorlessImage())) {
-                Client client = ClientController.getInstance().dequeueClientWaiting();
-                if(client != null) {
-                    ClientController.getInstance().addClientsServed(client);
-                    step += "\n  EL CLIENTE " + client.getName() + " INGRESA A LA LISTA DE CLIENTES ATENDIDOS\n";
-                }
-            }
-        }*/
     }
 
     private void stepPrinters() {
@@ -491,6 +482,7 @@ public class Menu {
                     rand.nextInt((4-1)+1)+1,
                     rand.nextInt((4-1)+1)+1);
             ClientController.getInstance().addReceptionQueue(client);
+            ClientController.getInstance().add(client);
             idClient++;
         }
     }
@@ -813,7 +805,10 @@ public class Menu {
                 serverdReport() + "\n" +
                 "}";
 
-        DocumentController.getInstance().documentWriting("prueba.dot", head);
-        DocumentController.getInstance().execGraphviz("", "", "");
+        DocumentController.getInstance().documentWriting("Report.dot", head);
+        DocumentController.getInstance().execGraphviz("Report.dot", "Report", "png");
+        DocumentController.getInstance().execGraphviz("Report.dot", "Report", "pdf");
+        DocumentController.getInstance().execGraphviz("Report.dot", "Report", "svg");
+        DocumentController.getInstance().openDocument("Report.png");
     }
 }

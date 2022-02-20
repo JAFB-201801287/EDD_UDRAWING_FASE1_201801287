@@ -1,0 +1,128 @@
+digraph g {
+	graph [
+		rankdir = "LR"
+	];
+	
+	node [
+		fontsize = "16"
+		shape = "ellipse"
+	];
+	
+	edge [
+	];
+
+	subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		
+		label = "COLA DE RECEPCIÓN";
+	}
+
+	subgraph cluster_1 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		window1 -> window2 -> window3;
+				client1 -> window1;
+		client3 -> window2;
+		client6 -> window3;
+
+		window1 -> imgWindow1_0 -> imgWindow1_1 -> imgCWindow1_0 -> imgCWindow1_1;
+window2 -> imgWindow2_0 -> imgCWindow2_0 -> imgCWindow2_1;
+window3 -> imgWindow3_0 -> imgCWindow3_0;
+
+		label = "VENTANILLAS";
+	}
+	"window1" [
+		label = "VENTANILLA 1"
+		shape = "record"
+		color = "lightyellow"
+	];
+	"client1" [
+		label = "CLIENTE Andres Lopez"
+		shape = "record"
+	];
+
+	"imgWindow1_0" [
+		label = "IMG_BN"
+		shape = "record"
+	];
+
+	"imgWindow1_1" [
+		label = "IMG_BN"
+		shape = "record"
+	];
+	"imgCWindow1_0" [
+		label = "IMG_C"
+		shape = "record"
+	];	"imgCWindow1_1" [
+		label = "IMG_C"
+		shape = "record"
+	];	"window2" [
+		label = "VENTANILLA 2"
+		shape = "record"
+		color = "lightyellow"
+	];
+	"client3" [
+		label = "CLIENTE Luiz Higueros"
+		shape = "record"
+	];
+	"imgWindow2_0" [
+		label = "IMG_BN"
+		shape = "record"
+	];
+	"imgCWindow2_0" [
+		label = "IMG_C"
+		shape = "record"
+	];	"imgCWindow2_1" [
+		label = "IMG_C"
+		shape = "record"
+	];	"window3" [
+		label = "VENTANILLA 3"
+		shape = "record"
+		color = "lightyellow"
+	];
+	"client6" [
+		label = "CLIENTE Luisa Diaz"
+		shape = "record"
+	];
+	"imgWindow3_0" [
+		label = "IMG_BN"
+		shape = "record"
+	];
+	"imgCWindow3_0" [
+		label = "IMG_C"
+		shape = "record"
+	];
+
+	subgraph cluster_3 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		PRINT_BN;
+
+		PRINT_C;
+
+		label = "IMPRESORAS";
+	}
+	"PRINT_BN" [
+		label = "IMPRESORA EN BLANCO Y NEGRO"
+		shape = "record"
+		color = "lightyellow"
+	];
+	"PRINT_C" [
+		label = "IMPRESORA A COLOR"
+		shape = "record"
+		color = "lightyellow"
+	];
+
+	subgraph cluster_4 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		
+		label = "CLIENTES ATENDIDOS";
+	}
+
+}

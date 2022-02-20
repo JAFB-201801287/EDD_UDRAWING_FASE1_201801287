@@ -3,6 +3,7 @@ package com.floresbarco.controller;
 import com.google.gson.Gson;
 import com.google.gson.internal.StringMap;
 
+import java.awt.*;
 import java.io.*;
 import java.util.Map;
 
@@ -59,10 +60,29 @@ public class DocumentController {
         }
     }
 
+    public void openDocument(String address) {
+        try
+        {
+            File file = new File(address);
+            if(!Desktop.isDesktopSupported())
+            {
+                System.out.println("ERROR AL ABRIR EL ARCHIVO.");
+                return;
+            }
+            Desktop desktop = Desktop.getDesktop();
+            if(file.exists())
+                desktop.open(file);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public void execGraphviz(String address, String name, String type) {
         try {
             ProcessBuilder pb;
-            pb = new ProcessBuilder("dot", "-Tpng", "-o", "prueba.png", "prueba.dot");
+            pb = new ProcessBuilder("dot", "-T" + type, "-o",  name + "." + type, address);
             Process startProcess = pb.inheritIO().start();
             startProcess.waitFor();
         } catch (Exception e) {

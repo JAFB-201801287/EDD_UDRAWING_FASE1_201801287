@@ -7,6 +7,8 @@ import com.floresbarco.model.Client;
 
 public class ClientController {
     private static ClientController instance;
+    // LISTA
+    private  LinkedList<Client> list;
     // COLA DE RECEPCION DE CLIENTES
     private LinkedList<Client> receptionQueue;
     // LISTA SIMPLE DE CLIENTES ATENDIDOS
@@ -17,6 +19,7 @@ public class ClientController {
     // CONSTRUCTOR
     public ClientController() {
         instance = null;
+        list = new LinkedList<Client>();
         receptionQueue = new LinkedList<Client>();
         clientsServed = new LinkedList<Client>();
         clientWaiting = new CircularDoubleLinkedList<Client>();
@@ -31,6 +34,10 @@ public class ClientController {
     }
 
     // GET
+    public LinkedList<Client> getList() {
+        return list;
+    }
+
     public LinkedList<Client> getReceptionQueue() {
         return receptionQueue;
     }
@@ -44,6 +51,10 @@ public class ClientController {
     }
 
     // ADD
+    public void add(Client client) {
+        list.add(client);
+    }
+
     public void addReceptionQueue(Client client) {
         receptionQueue.add(client);
     }

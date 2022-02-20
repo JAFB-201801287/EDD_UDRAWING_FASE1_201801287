@@ -1,31 +1,49 @@
 package com.floresbarco.model;
 
-public class Cliente {
+import com.floresbarco.DataStructure.Stack;
+
+public class Client {
     private Integer id;
     private String name;
     private Integer colorImage;
     private Integer colorlessImage;
     private Integer steps;
+    private Integer windowNumber;
+    private Stack<Image> images;
 
     // CONSTRUCTOR
-    public Cliente() {
+    public Client() {
         this.id = 0;
         this.name = "";
         this.colorImage = 0;
         this.colorlessImage = 0;
         this.steps = 0;
+        this.windowNumber = 0;
+        this.images = new Stack<Image>();
     }
 
-    public Cliente(Integer id, String name, Integer colorImage, Integer colorlessImage, Integer steps) {
+    public Client(Integer id, String name, Integer colorImage, Integer colorlessImage) {
+        this.id = id;
+        this.name = name;
+        this.colorImage = colorImage;
+        this.colorlessImage = colorlessImage;
+        this.steps = 0;
+        this.windowNumber = 0;
+        this.images = new Stack<Image>();
+    }
+
+    public Client(Integer id, String name, Integer colorImage, Integer colorlessImage, Integer steps, Integer windowNumber, Stack<Image> images) {
         this.id = id;
         this.name = name;
         this.colorImage = colorImage;
         this.colorlessImage = colorlessImage;
         this.steps = steps;
+        this.windowNumber = windowNumber;
+        this.images = images;
     }
 
-    // GETTER AND SETTERS
 
+    // GETTER AND SETTERS
     public Integer getId() {
         return id;
     }
@@ -64,5 +82,21 @@ public class Cliente {
 
     public void setSteps(Integer steps) {
         this.steps = steps;
+    }
+
+    public Integer getWindowNumber() {
+        return windowNumber;
+    }
+
+    public void setWindowNumber(Integer windowNumber) {
+        this.windowNumber = windowNumber;
+    }
+
+    public Stack<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(Stack<Image> images) {
+        this.images = images;
     }
 }
